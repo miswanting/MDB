@@ -55,13 +55,13 @@ class MDB(object):
         if self.current_app == None:
             if cmd[1] == 'pm':
                 self.current_app = self.pm
-                self.current_app.start(api)
+                self.current_app.start(self.api)
             elif cmd[1] == 'snm':
                 self.current_app = self.snm
-                self.current_app.start(api)
+                self.current_app.start(self.api)
             elif cmd[1] == 'ttm':
                 self.current_app = self.ttm
-                self.current_app.start(api)
+                self.current_app.start(self.api)
         else:
             self.current_app.doCMD(cmd)
 
