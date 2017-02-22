@@ -65,17 +65,17 @@ class MDB(object):
 
     def doCMD(self, cmd):
         if self.current_app == None:
-            if cmd[1] == 'pm':
             if cmd[0] == 'exit' or cmd[0] == 'quit':
                 self.isRunning['MDB'] = False
             elif cmd[0] == 'help':
                 self.help(cmd)
+            elif cmd[0] == 'pm':
                 self.current_app = self.pm
                 self.current_app.start(self.api)
-            elif cmd[1] == 'snm':
+            elif cmd[0] == 'snm':
                 self.current_app = self.snm
                 self.current_app.start(self.api)
-            elif cmd[1] == 'ttm':
+            elif cmd[0] == 'ttm':
                 self.current_app = self.ttm
                 self.current_app.start(self.api)
         else:
