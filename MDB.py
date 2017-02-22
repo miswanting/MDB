@@ -1,4 +1,5 @@
 import os
+import time
 import threading
 
 import app_PM
@@ -42,6 +43,8 @@ class MDB(object):
                         self.isRunning['MDB'] = False
                     elif cmd[0] == 'help':
                         self.help(cmd)
+                    elif self.debug and cmd[0] == 'debug':
+                        self.doDebug(cmd)
                     else:
                         self.doCMD(cmd)
         self.t_inputStar = threading.Thread(target=inputStar)
@@ -50,6 +53,18 @@ class MDB(object):
     def help(self, cmd):
         if len(cmd) == 1:
             print(doc['help'])
+
+    def doDebug(self):
+        cmd = ['', '']
+        for each in cmd:
+            each = each.split(' ')
+            if each[0] == 'exit' or each[0] == 'quit':
+                self.isRunning['MDB'] = False
+            elif each[0] == 'help':
+                self.help(each)
+            else:
+                self.doCMD(each)
+            time.sleep(1)
 
     def doCMD(self, cmd):
         if self.current_app == None:
@@ -70,4 +85,4 @@ class MDB(object):
             self.current_app = None
 
 if __name__ == '__main__':
-    MDB()
+    MDB(True)
