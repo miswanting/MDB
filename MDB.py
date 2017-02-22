@@ -55,7 +55,8 @@ class MDB(object):
             print(doc['help'])
 
     def doDebug(self):
-        cmd = ['', '']
+        cmd = ['',
+               '']
         for each in cmd:
             each = each.split(' ')
             if each[0] == 'exit' or each[0] == 'quit':
