@@ -77,6 +77,9 @@ class ProMan(object):
         self.t_inputStar.join()
         self.t_timerStar.join()
 
+    def start(self, api):
+        self.api = api
+
     def startInputStar(self):
         def inputStar():
             os.system('title ProMan')
