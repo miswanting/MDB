@@ -39,7 +39,7 @@ doc = {
 }
 
 
-class ProMan(object):
+class PM(object):
     """docstring for ProMan."""
 
     isRunning = {}
@@ -64,7 +64,7 @@ class ProMan(object):
     }
 
     def __init__(self, debug=False):
-        super(ProMan, self).__init__()
+        super(PM, self).__init__()
         self.debug = debug
         self.isRunning['ProMan'] = True
         if os.path.exists(self.path):
@@ -72,10 +72,10 @@ class ProMan(object):
         elif not os.path.exists('data/'):
             os.mkdir('data')
         self.today = dt.date.today()
-        self.startInputStar()
+        # self.startInputStar()
         self.startTimerStar()
-        self.t_inputStar.join()
-        self.t_timerStar.join()
+        # self.t_inputStar.join()
+        # self.t_timerStar.join()
 
     def start(self, api):
         self.api = api
