@@ -167,7 +167,11 @@ class PM(object):
             # TODO: help act
 
     def doCMD(self, cmd):
-        if cmd[0] == 'show':  # 显示
+        if cmd[0] == 'exit' or cmd[0] == 'quit':
+            self.isRunning['ProMan'] = False
+        elif cmd[0] == 'help':
+            self.help(cmd)
+        elif cmd[0] == 'show':  # 显示
             if cmd[1] == 'al':  # 活动清单(Activity List)
                 self.showAL()
             elif cmd[1] == 'tdtd':  # 今日待办(Todo Today)
