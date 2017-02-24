@@ -66,7 +66,7 @@ class PM(object):
     def __init__(self, debug=False):
         super(PM, self).__init__()
         self.debug = debug
-        self.isRunning['ProMan'] = True
+        self.isRunning['PM'] = True
         if os.path.exists(self.path):
             self.load()
         elif not os.path.exists('data/'):
@@ -82,17 +82,17 @@ class PM(object):
 
     def startInputStar(self):
         def inputStar():
-            os.system('title ProMan')
-            print('Welcome to ProMan!')
+            os.system('title PM')
+            print('Welcome to PM!')
             print('You can type "help" to get help.')
-            while self.isRunning['ProMan']:
+            while self.isRunning['PM']:
                 cmd = input('>')
                 if cmd == '':
                     continue
                 else:
                     cmd = cmd.split(' ')
                     if cmd[0] == 'exit' or cmd[0] == 'quit':
-                        self.isRunning['ProMan'] = False
+                        self.isRunning['PM'] = False
                     elif cmd[0] == 'help':
                         self.help(cmd)
                     else:
@@ -102,7 +102,7 @@ class PM(object):
 
     def startTimerStar(self):
         def timerStar():
-            while self.isRunning['ProMan']:
+            while self.isRunning['PM']:
                 time.sleep(1)
                 self.data['now'] = dt.datetime.now()
                 if self.data['current']['status'] == 'idle':
@@ -353,12 +353,12 @@ class PM(object):
 
     def set_title(self, title=''):
         if title == '':
-            os.system('title ProMan')
+            os.system('title PM')
         else:
-            os.system('title ProMan - {}'.format(title))
+            os.system('title PM - {}'.format(title))
 
     def generate_title(self):
-        title = 'title ProMan'
+        title = 'title PM'
         if not self.currentMode == '':
             title += ' - 模式：' + self.currentMode
         title += ' - 状态：' + self.data['current']['status']
