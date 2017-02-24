@@ -93,6 +93,7 @@ class PM(object):
                     cmd = cmd.split(' ')
                     if cmd[0] == 'exit' or cmd[0] == 'quit':
                         self.isRunning['PM'] = False
+                        self.api('exit')
                     elif cmd[0] == 'help':
                         self.help(cmd)
                     else:
