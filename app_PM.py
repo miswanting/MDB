@@ -43,7 +43,7 @@ class PM(object):
     """docstring for ProMan."""
 
     isRunning = {}
-    path = 'data/db.json'
+    path = 'data/pmdb.json'
     currentMode = ''
     data = {
         'now': None,  # 日期
